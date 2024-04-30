@@ -1,1 +1,1 @@
-# learning_c_sharp
+A collection of code to learn c#
