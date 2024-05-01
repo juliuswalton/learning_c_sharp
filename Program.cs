@@ -3,28 +3,28 @@
     private int vertices;
     private List<int>[] adjacencyList;
 
-    public Graph(int v)
+    public Graph(int numVertices)
     {
-        vertices = v;
-        adjacencyList = new List<int>[v];
-        for (int i = 0; i < v; i++)
+        vertices = numVertices;
+        adjacencyList = new List<int>[numVertices];
+        for (int i = 0; i < numVertices; i++)
         {
             adjacencyList[i] = new List<int>();
         }
 
     }
 
-    public void AddEdge(int v, int w)
+    public void AddEdge(int startNode, int endNode)
     {
-        adjacencyList[v].Add(w);
+        adjacencyList[startNode].Add(endNode);
     }
 
-    void DfsUtil(int v, bool[] visited)
+    void DfsUtil(int currentNode, bool[] visited)
     {
-        visited[v] = true;
-        Console.Write(v + " ");
+        visited[currentNode] = true;
+        Console.Write(currentNode + " ");
 
-        List<int> vertexList = adjacencyList[v];
+        List<int> vertexList = adjacencyList[currentNode];
 
         foreach (var vertex in vertexList)
         {
@@ -35,10 +35,10 @@
         }
     }
 
-    public void DFS(int v)
+    public void DFS(int startNode)
     {
         bool[] visited = new bool[vertices];
-        DfsUtil(v, visited);
+        DfsUtil(startNode, visited);
     }
 
 
